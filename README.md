@@ -1,0 +1,2 @@
+# lottoman
+Generating random numbers
