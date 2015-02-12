@@ -6,13 +6,12 @@ import (
     "time"
 )
 
+//Not much to comment. Get 6 random numbers...
 func main() {
-    sum := 1
-    for sum < 2 {
+    sum := 0
+    for sum < 6 {
     sum ++
-    rand.Seed(time.Now().Unix())
+    rand.Seed(time.Now().UnixNano())
     fmt.Println(rand.Intn(35))
-    time.Sleep(6328 * time.Millisecond)
   }
 }
-
