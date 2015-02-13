@@ -6,12 +6,27 @@ import (
     "time"
 )
 
-//Not much to comment. Get 6 random numbers...
+//Generate six random numbers.
 func main() {
-    sum := 0
-    for sum < 6 {
-    sum ++
-    rand.Seed(time.Now().UnixNano())
-    fmt.Println(rand.Intn(35))
-  }
+    i := 0
+    var num []int
+    for i < 6 {
+        rand.Seed(time.Now().UnixNano())
+        temp:=rand.Intn(35)
+        if IsItUnique(num,temp) {
+             fmt.Print("Number on slot ",i + 1," ", temp,"\n")
+             num=append(num,temp)
+             i++
+        }
+    }
+
+}
+//Function to make sure the number is unique.
+func IsItUnique(slice []int, proposed int) bool {
+    for _, ele := range slice {
+        if ele == proposed {
+            return false
+        }
+    }
+    return true
 }
