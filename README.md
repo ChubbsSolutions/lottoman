@@ -43,3 +43,7 @@ GLOBAL OPTIONS:
    --help, -h		show help
    --version, -v	print the version
 ```
+
+##About
+
+Crafted with :heart: in Indiana by (ChubbsSolutions) [chubbs.solutions]
