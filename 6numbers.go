@@ -14,7 +14,7 @@ func main() {
         rand.Seed(time.Now().UnixNano())
         temp:=rand.Intn(35)
         if IsItUnique(num,temp) {
-             fmt.Print("Number on slot ",i + 1," ", temp,"\n")
+             fmt.Print(temp,"\n")
              num=append(num,temp)
              i++
         }
