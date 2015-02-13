@@ -7,7 +7,7 @@ Generating random numbers
 
 ##Download the software
 
-[Download](https://github.com/barneshere/lottoman/releases) the latest version of lottoman.
+[Download](https://github.com/barneshere/lottoman/releases) the latest version of lottoman for all major platforms.
 
 ##Compile and run the source
 
@@ -46,4 +46,4 @@ GLOBAL OPTIONS:
 
 ##About
 
-Crafted with :heart: in Indiana by [ChubbsSolutions] (chubbs.solutions)
+Crafted with :heart: in Indiana by [ChubbsSolutions] (chubbs.solutions).
