@@ -46,4 +46,4 @@ GLOBAL OPTIONS:
 
 ##About
 
-Crafted with :heart: in Indiana by [ChubbsSolutions] (chubbs.solutions).
+Crafted with :heart: in Indiana by [Chubbs Solutions] (http://chubbs.solutions).
