@@ -24,7 +24,7 @@ func main() {
 //Function to make sure the number is unique.
 func IsItUnique(slice []int, proposed int) bool {
     for _, ele := range slice {
-        if ele == proposed {
+        if ele == proposed || proposed == 0 {
             return false
         }
     }
