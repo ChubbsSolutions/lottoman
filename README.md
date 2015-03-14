@@ -1,4 +1,7 @@
 # lottoman
+
+[![Build Status](https://github.com/barneshere/lottoman.png)](https://github.com/barneshere/lottoman)
+
 Hoosier Lottery and Powerball number generator.
 
 ##Conditions
