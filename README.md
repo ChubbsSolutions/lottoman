@@ -50,3 +50,4 @@ GLOBAL OPTIONS:
 ##About
 
 Crafted with :heart: in Indiana by [Chubbs Solutions] (http://chubbs.solutions).
+Follow us [@ChubbsSolutions] (https://twitter.com/ChubbsSolutions).
