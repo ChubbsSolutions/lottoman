@@ -1,6 +1,6 @@
 # lottoman
 
-[![Build Status](https://travis-ci.org/barneshere/lottoman.png)](https://travis-ci.org/barneshere/lottoman)
+[![Build Status](https://travis-ci.org/ChubbsSolutions/lottoman.png)](https://travis-ci.org/ChubbsSolutions/lottoman)
 
 Hoosier Lottery and Powerball number generator.
 
@@ -10,14 +10,14 @@ Hoosier Lottery and Powerball number generator.
 
 ##Download the software
 
-[Download](https://github.com/barneshere/lottoman/releases) the latest version of lottoman for all major platforms.
+[Download](https://github.com/ChubbsSolutions/lottoman/releases) the latest version of lottoman for all major platforms.
 
 ##Compile and run the source
 
 Requires Go 1.4 or newer (earlier versions untested). Remember to set the GOPATH variable.
 
 ```
-git clone https://github.com/barneshere/lottoman
+git clone https://github.com/ChubbsSolutions/lottoman
 cd lottoman
 go get https://github.com/mitchellh/gox
 go run lottoman.go
