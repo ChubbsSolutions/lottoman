@@ -14,7 +14,7 @@ import (
 )
 
 //Define constants
-const version string = "0.3"
+const version string = "0.4"
 const author string = "Chubbs Solutions"
 const email string = "lottoman@chubbs.solutions"
 const appName string = "lottoman"
