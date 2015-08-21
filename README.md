@@ -47,6 +47,17 @@ GLOBAL OPTIONS:
    --version, -v	print the version
 ```
 
+##Email
+
+Lottoman can now email you the lotto numbers. You just need to set a Mailgun API key and domain. Here's how you would do it in Linux:
+
+```
+export MAILGUN_PUBLIC_API_KEY=example-key
+export MAILGUN_DOMAIN=chubbs.solutions
+```
+Just add an email address as an argument.
+
+
 ##About
 
 Crafted with :heart: in Indiana by [Chubbs Solutions] (http://chubbs.solutions).
