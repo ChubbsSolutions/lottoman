@@ -53,7 +53,7 @@ Lottoman can now email you the lotto numbers. You just need to set a Mailgun API
 
 ```
 export MAILGUN_PUBLIC_API_KEY=example-key
-export MAILGUN_DOMAIN=chubbs.solutions
+export MAILGUN_DOMAIN=example-domain.com
 ```
 Just add an email address as an argument.
 
