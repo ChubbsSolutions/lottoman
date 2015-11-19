@@ -14,7 +14,7 @@ import (
 )
 
 //Define constants
-const version string = "0.4"
+const version string = "0.5"
 const author string = "Chubbs Solutions"
 const email string = "lottoman@chubbs.solutions"
 const appName string = "lottoman"
@@ -23,7 +23,7 @@ const appDescription string = "Application to get the lucky numbers for the lott
 //MailgunPublicAPIKey key for the mail service.
 var MailgunPublicAPIKey = os.Getenv("MAILGUN_PUBLIC_API_KEY")
 
-//MailgunPrivateAPIKey key for the mail service.
+//MailgunDomain key for the mail service.
 var MailgunDomain = os.Getenv("MAILGUN_DOMAIN")
 
 //Evaluate options on main
@@ -46,13 +46,17 @@ func main() {
 				err := displayNumbers(luckyNumbers, nil)
 				if err != nil {
 					fmt.Println(chalk.Red, "Error displaying numbers.")
-					os.Exit(-1)
+					return
 				}
 
 				if len(c.Args()) == 1 {
 					recipient := c.Args()[0]
 					subject := fmt.Sprintf("Hoosier Lotto Numbers for %s", t.Format("Jan 02 2006"))
-					emailNumbers(luckyNumbers, nil, subject, recipient)
+					err = emailNumbers(luckyNumbers, nil, subject, recipient)
+					if err != nil {
+						fmt.Println(chalk.Red, "Error emailing numbers.")
+						return
+					}
 				}
 			},
 		},
@@ -65,14 +69,22 @@ func main() {
 				if len(c.Args()) == 1 {
 					recipient := c.Args()[0]
 					subject := fmt.Sprintf("Powerball Numbers for %s", t.Format("Jan 02 2006"))
-					emailNumbers(luckyNumbers, &pb, subject, recipient)
+					err := emailNumbers(luckyNumbers, &pb, subject, recipient)
+					if err != nil {
+						fmt.Println(chalk.Red, "Error emailing numbers.")
+						return
+					}
 				}
 
 			},
 		},
 	}
 
-	app.Run(os.Args)
+	err := app.Run(os.Args)
+	if err != nil {
+		fmt.Println(chalk.Red, "Error running app.")
+		os.Exit(-1)
+	}
 
 }
 
@@ -91,8 +103,7 @@ func hoosierLottoGet() []int {
 	i := 0
 	var num []int
 	for i < 6 {
-		rand.Seed(time.Now().UnixNano())
-		temp := rand.Intn(35)
+		temp := generateRandomNumber(1, 48)
 		if IsNumGood(num, temp) {
 			num = append(num, temp)
 			i++
@@ -106,18 +117,15 @@ func powerballGet() ([]int, int) {
 	var num []int
 	var pb int
 	for i < 5 {
-		rand.Seed(time.Now().UnixNano())
-		temp := rand.Intn(59)
+		temp := generateRandomNumber(1, 69)
 		if IsNumGood(num, temp) {
-			fmt.Print(temp, "\n")
 			num = append(num, temp)
 			i++
 		}
 	}
 	x := 0
 	for x == 0 {
-		rand.Seed(time.Now().UnixNano())
-		pb = rand.Intn(35)
+		pb = generateRandomNumber(1, 26)
 		if pb != 0 {
 			fmt.Println("\nPowerball: ", pb)
 			x = 1
@@ -168,4 +176,11 @@ func emailNumbers(numbers []int, pb *int, subject, recipient string) error {
 	// fmt.Printf("Message from server: %s\n", response)
 
 	return nil
+}
+
+//generateRandomNumber Get random number given the min and the max
+func generateRandomNumber(min, max int) int {
+	rand.Seed(time.Now().UnixNano())
+	proposed := rand.Intn(max-min) + min
+	return proposed
 }

@@ -31,3 +31,10 @@ func TestUnitPowerballGet(t *testing.T) {
 		t.Error("Error getting Powerball numbers.")
 	}
 }
+
+func TestUnitGenerateRandomNumber(t *testing.T) {
+	proposed := generateRandomNumber(1, 25)
+	if (proposed < 0) || (proposed > 25) {
+		t.Error("Error generating number.")
+	}
+}

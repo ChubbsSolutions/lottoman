@@ -5,8 +5,8 @@
 Hoosier Lottery and Powerball number generator.
 
 ##Conditions
-* Hoosier Lottery is 6 numbers between 1 and 48 Same number cannot be drawn twice.
-* Powerball is 5 numbers between 1 and 59 and The 'Powerball' between 1 and 35.
+* Hoosier Lottery is 6 numbers between 1 and 48. Same number cannot be drawn twice.
+* Powerball is 5 numbers between 1 and 69 and The 'Powerball' between 1 and 26.
 
 ##Download the software
 
@@ -32,7 +32,7 @@ USAGE:
    lottoman [global options] command [command options] [arguments...]
 
 VERSION:
-   0.3
+   0.5
 
 AUTHOR:
   Chubbs Solutions - <lottoman@chubbs.solutions>
@@ -49,7 +49,7 @@ GLOBAL OPTIONS:
 
 ##Email
 
-Lottoman can now email you the lotto numbers. You just need to set a Mailgun API key and domain. Here's how you would do it in Linux:
+Lottoman can now email you the lotto numbers. You just need to set a [Mailgun](https://mailgun.com) API key and domain. Here's how you would do it in Linux:
 
 ```
 export MAILGUN_PUBLIC_API_KEY=example-key
