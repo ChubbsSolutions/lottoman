@@ -14,7 +14,7 @@ import (
 )
 
 //Define constants
-const version string = "0.5"
+const version string = "0.5.1"
 const author string = "Chubbs Solutions"
 const email string = "lottoman@chubbs.solutions"
 const appName string = "lottoman"
@@ -66,6 +66,13 @@ func main() {
 			Usage:     "Get numbers for the powerball",
 			Action: func(c *cli.Context) {
 				luckyNumbers, pb := powerballGet()
+
+				err := displayNumbers(luckyNumbers, &pb)
+				if err != nil {
+					fmt.Println(chalk.Red, "Error displaying numbers.")
+					return
+				}
+
 				if len(c.Args()) == 1 {
 					recipient := c.Args()[0]
 					subject := fmt.Sprintf("Powerball Numbers for %s", t.Format("Jan 02 2006"))
@@ -123,14 +130,7 @@ func powerballGet() ([]int, int) {
 			i++
 		}
 	}
-	x := 0
-	for x == 0 {
-		pb = generateRandomNumber(1, 26)
-		if pb != 0 {
-			fmt.Println("\nPowerball: ", pb)
-			x = 1
-		}
-	}
+	pb = generateRandomNumber(1, 26)
 	return num, pb
 }
 
@@ -139,7 +139,7 @@ func displayNumbers(numbers []int, pb *int) error {
 		fmt.Print(chalk.Cyan, num, "\n")
 	}
 	if pb != nil {
-		fmt.Print(chalk.Yellow, "\nPowerball", pb, "\n")
+		fmt.Print(chalk.Yellow, "\nPowerball: ", *pb, "\n")
 	}
 	return nil
 }
