@@ -57,6 +57,9 @@ export MAILGUN_DOMAIN=example-domain.com
 ```
 Just add an email address as an argument.
 
+## License
+Copyright (c) 2015 Chubbs Solutions
+Licensed under the WTFNMFPL-1.0 license.
 
 ##About
 
